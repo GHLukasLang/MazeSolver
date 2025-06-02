@@ -126,9 +126,7 @@ class Maze():
                 self._draw_cell(i, j)     
         self.__break_walls_r(i, j)   
         self.__reset_cells_visited()    
-        for row in self._cells:
-            for cell in row:
-                cell.draw()
+
         
 
     def _draw_cell(self, i, j):
