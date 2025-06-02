@@ -6,9 +6,7 @@ def main():
     num_cols = 12
     num_rows = 10
     m1 = Maze(15, 15, num_rows, num_cols, 10, 10, win)
-    m1._create_cells()
-    #m1.__break_walls_r(0,0)
-    m1._break_entrance_and_exit()
+
     m1.solve()
 
     win.wait_for_close()
