@@ -257,50 +257,13 @@ class Maze():
                 nj = j + dj
                 next_cell = self._cells[ni][nj]
                 # Draw your move, recurse, handle undo if needed
-                path_line = Line(current.mid, next_cell.mid)
-                path_line.draw(self.win.canvas, "red")
+                current.draw_move(next_cell)
+                
+                #path_line = Line(current.mid, next_cell.mid)
+                #path_line.draw(self.win.canvas, "red")
                 result = self._solve_r(ni, nj)
                 if result:
                     return True
-                path_line.draw(self.win.canvas, "grey")
+                current.draw_move(next_cell, undo=True)
         return False
 
-'''
-            #draw a move
-            for path in paths:
-                next_cell = path[0]
-                direction = path[1]
-                path_line = Line(current.mid, next_cell.mid)
-                path_line.draw(self.win.canvas, "red")
-
-                
-                if direction == "top":
-                    result = self._solve_r(i-1, j)
-                    if result:
-                        return True
-                    path_line.draw(self.win.canvas, "grey")
-                    
-                
-                if direction == "right":
-                    result = self._solve_r(i, j+1)
-                    if result:
-                        return True
-                    path_line.draw(self.win.canvas, "grey")
-
-                if direction == "bot":
-                    result = self._solve_r(i+1, j)
-                    if result:
-                        return True
-                    path_line.draw(self.win.canvas, "grey")
-                
-                if direction == "left":
-                    result = self._solve_r(i, j-1)
-                    if result:
-                        return True
-                    path_line.draw(self.win.canvas, "grey")
-        
-        
-        return False       
-                
-       '''  
-    
